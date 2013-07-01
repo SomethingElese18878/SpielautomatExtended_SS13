@@ -3,9 +3,12 @@ import java.awt.event.KeyEvent;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JRadioButton;
 
 
 public class MyMenuBar extends JMenuBar {
+	
+	Playfield playfield;
 	
 	JMenu menuProgram;
 	JMenuItem menuProgramStatus;
@@ -14,12 +17,17 @@ public class MyMenuBar extends JMenuBar {
 	JMenu menuExtensions;
 	JMenuItem menuExtensionsInfo;
 	JMenuItem menuExtensionsLookAndFeel;
-	JMenuItem menuExtensionsLookAndFeelLook1;
-	JMenuItem menuExtensionsLookAndFeelLook2;
+	JRadioButton menuExtensionsLookAndFeelMetal;
+	JRadioButton menuExtensionsLookAndFeelNimbus;
+	JRadioButton menuExtensionsLookAndFeelMotif;
+	JRadioButton menuExtensionsLookAndFeelGtk;
 	
-	MyMenuBarListener myMenuBarListener = new MyMenuBarListener();
+	MyMenuBarListener myMenuBarListener;
 	
-	public MyMenuBar() {
+	public MyMenuBar(Playfield _playfield) {
+		this.playfield = _playfield;
+		
+		myMenuBarListener = new MyMenuBarListener(this.playfield);
 		//Create menu elements
 		this.menuProgram = new JMenu("Program");
 		this.menuProgram.setMnemonic(KeyEvent.VK_P);
@@ -42,11 +50,19 @@ public class MyMenuBar extends JMenuBar {
 		this.menuExtensionsLookAndFeel.setMnemonic(KeyEvent.VK_L);
 		
 		//subMenu LookAndFeel in Extensions
-		this.menuExtensionsLookAndFeelLook1 = new JMenuItem("look1");
-		this.menuExtensionsLookAndFeelLook2 = new JMenuItem("look2");
+		this.menuExtensionsLookAndFeelMetal = new JRadioButton("Metal");
+		this.menuExtensionsLookAndFeelMetal.addActionListener(this.myMenuBarListener);
+		this.menuExtensionsLookAndFeelNimbus = new JRadioButton("Nimbus");
+		this.menuExtensionsLookAndFeelNimbus.addActionListener(this.myMenuBarListener);
+		this.menuExtensionsLookAndFeelMotif = new JRadioButton("Motif");
+		this.menuExtensionsLookAndFeelMotif.addActionListener(this.myMenuBarListener);
+		this.menuExtensionsLookAndFeelGtk = new JRadioButton("Gtk");
+		this.menuExtensionsLookAndFeelGtk.addActionListener(this.myMenuBarListener);
 		
-		this.menuExtensionsLookAndFeel.add(this.menuExtensionsLookAndFeelLook1);
-		this.menuExtensionsLookAndFeel.add(this.menuExtensionsLookAndFeelLook2);
+		this.menuExtensionsLookAndFeel.add(this.menuExtensionsLookAndFeelMetal);
+		this.menuExtensionsLookAndFeel.add(this.menuExtensionsLookAndFeelNimbus);
+		this.menuExtensionsLookAndFeel.add(this.menuExtensionsLookAndFeelMotif);
+		this.menuExtensionsLookAndFeel.add(this.menuExtensionsLookAndFeelGtk);
 		
 		this.menuExtensions.add(menuExtensionsInfo);
 		this.menuExtensions.add(menuExtensionsLookAndFeel);

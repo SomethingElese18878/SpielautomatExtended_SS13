@@ -8,15 +8,15 @@ public class MainWindow extends JFrame{
 	MyMenuBar myMenuBar;
 	
 	public MainWindow(){
-		this.myMenuBar = new MyMenuBar();
-		
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setResizable(false);
 		this.setTitle("Spielautomat");
 		
 		this.playfield = new Playfield();
+		this.myMenuBar = new MyMenuBar(this.playfield);
 		
 		this.setJMenuBar(this.myMenuBar);
+
 		this.add(this.playfield);
 		this.pack();
 		this.setVisible(true);

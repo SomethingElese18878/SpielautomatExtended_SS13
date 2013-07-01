@@ -7,8 +7,12 @@ import java.awt.GridLayout;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
+import javax.swing.UIManager.LookAndFeelInfo;
 import javax.swing.border.LineBorder;
 
 import model.spielautomat;
@@ -24,10 +28,16 @@ public class Playfield extends JPanel{
 	spielautomat game;
 	Integer[] numerics;
 	RollingNumericsThread rollingNumericsThread;
+	
+	UIManager uiManager;
+	LookAndFeelInfo lookAndFeelInfo[];
 
 	Playfield(){
+		this.lookAndFeelInfo = UIManager.getInstalledLookAndFeels();
+		this.setLookAndFeel(this.lookAndFeelInfo[3].getClassName());
+			
 		this.game = spielautomat.getInstance();
-		this.game.addspielListener( new mySpielautomatListener(this) );
+		this.game.addspielListener( new mySpielautomatListener(this));
 
 		this.rollingNumericsThread = new RollingNumericsThread(this);
 		
@@ -103,6 +113,18 @@ public class Playfield extends JPanel{
 	public void updateCreditPrize(){
 		this.creditText.setText( Integer.toString( this.game.getGuthaben() ) );
 		this.prizeText.setText( Integer.toString( this.game.getGewinn() ) );
+	}
+	
+	public void setLookAndFeel(String _lookClassName){
+		System.out.println("setLookAndFeel: " + _lookClassName);
+		
+		try{
+			UIManager.setLookAndFeel(_lookClassName);
+			SwingUtilities.updateComponentTreeUI(this);
+		}catch(Exception e){
+			JOptionPane.showMessageDialog(this, "Fehler LookAndFeel");
+		};
+		
 	}
 	
 	
