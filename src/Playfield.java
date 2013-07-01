@@ -28,7 +28,7 @@ public class Playfield extends JPanel{
 	Playfield(){
 		this.game = spielautomat.getInstance();
 		this.game.addspielListener( new mySpielautomatListener(this) );
-		
+
 		this.rollingNumericsThread = new RollingNumericsThread(this);
 		
 		this.panelCreditPrize = new JPanel();
