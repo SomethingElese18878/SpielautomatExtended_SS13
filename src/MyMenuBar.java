@@ -1,3 +1,5 @@
+import java.awt.event.KeyEvent;
+
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -20,10 +22,9 @@ public class MyMenuBar extends JMenuBar {
 	public MyMenuBar() {
 		//Create menu elements
 		this.menuProgram = new JMenu("Program");
-		this.menuProgram.setMnemonic('p');
+		this.menuProgram.setMnemonic(KeyEvent.VK_P);
 		
-		this.menuProgramExit = new JMenuItem("Exit");
-		this.menuProgramExit.setMnemonic('e');
+		this.menuProgramExit = new JMenuItem("Exit", KeyEvent.VK_E);
 		this.menuProgramExit.addActionListener(this.myMenuBarListener);
 		this.menuProgramStatus = new JMenuItem("Status");
 		this.menuProgramStatus.addActionListener(this.myMenuBarListener);
@@ -37,12 +38,15 @@ public class MyMenuBar extends JMenuBar {
 		
 		this.menuExtensionsInfo = new JMenuItem("Info");
 		this.menuExtensionsInfo.addActionListener(this.myMenuBarListener);
-		this.menuExtensionsLookAndFeel = new JMenuItem("LookAndFeel");
-		this.menuExtensionsLookAndFeel.addActionListener(this.myMenuBarListener);
+		this.menuExtensionsLookAndFeel = new JMenu("LookAndFeel");
+		this.menuExtensionsLookAndFeel.setMnemonic(KeyEvent.VK_L);
 		
 		//subMenu LookAndFeel in Extensions
 		this.menuExtensionsLookAndFeelLook1 = new JMenuItem("look1");
-		this.menuExtensionsLookAndFeel.add(menuExtensionsLookAndFeelLook1);
+		this.menuExtensionsLookAndFeelLook2 = new JMenuItem("look2");
+		
+		this.menuExtensionsLookAndFeel.add(this.menuExtensionsLookAndFeelLook1);
+		this.menuExtensionsLookAndFeel.add(this.menuExtensionsLookAndFeelLook2);
 		
 		this.menuExtensions.add(menuExtensionsInfo);
 		this.menuExtensions.add(menuExtensionsLookAndFeel);
