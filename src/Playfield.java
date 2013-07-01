@@ -45,8 +45,10 @@ public class Playfield extends JPanel{
 		
 		this.creditText = new JTextField( Integer.toString( spielautomat.STARTGUTHABEN ) );
 		this.creditText.setFont( new Font("Arial", Font.PLAIN ,20));
+		this.creditText.setEditable(false);
 		this.prizeText = new JTextField("0");
 		this.prizeText.setFont( new Font("Arial", Font.PLAIN ,20));
+		this.prizeText.setEditable(false);
 		
 		this.panelCreditPrize.add(this.credit);
 		this.panelCreditPrize.add(this.prize);
