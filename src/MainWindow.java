@@ -6,6 +6,7 @@ public class MainWindow extends JFrame{
 	private static final long serialVersionUID = 1L;
 	Playfield playfield;
 	MyMenuBar myMenuBar;
+	StatusWindow statusWindow;
 	
 	public MainWindow(){
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -15,6 +16,7 @@ public class MainWindow extends JFrame{
 		
 		this.playfield = new Playfield();
 		this.myMenuBar = new MyMenuBar(this.playfield);
+		this.statusWindow = new StatusWindow(this);
 		
 		this.setJMenuBar(this.myMenuBar);
 
