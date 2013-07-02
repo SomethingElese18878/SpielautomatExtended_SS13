@@ -16,12 +16,13 @@ public class MainWindow extends JFrame{
 		
 		this.playfield = new Playfield();
 		this.myMenuBar = new MyMenuBar(this.playfield);
-		this.statusWindow = new StatusWindow(this);
-		
-		this.setJMenuBar(this.myMenuBar);
 
+		this.setJMenuBar(this.myMenuBar);
 		this.add(this.playfield);
 		this.pack();
+		
+		this.statusWindow = new StatusWindow(this);	//After .pack() to get getWidth() getHeigth()
+
 		this.setVisible(true);
 	}
 	

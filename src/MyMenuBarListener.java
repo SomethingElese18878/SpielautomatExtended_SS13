@@ -1,8 +1,12 @@
+import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.UIManager;
-import javax.swing.UIManager.LookAndFeelInfo;
+import javax.swing.JComponent;
+import javax.swing.JFrame;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JPopupMenu;
 
 
 public class MyMenuBarListener implements ActionListener {
@@ -16,7 +20,12 @@ public class MyMenuBarListener implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
-//		JMenuItem pressedItemObj = (JMenuItem) e.getSource();	//ToDo: When i use that?
+		JMenuItem source = (JMenuItem) e.getSource();
+		JPopupMenu popupMenu = (JPopupMenu) source.getParent();
+		Component invoker = (JComponent) popupMenu.getInvoker();
+		JMenuBar bar = (JMenuBar) invoker.getParent();
+		MainWindow main = (MainWindow) bar.getTopLevelAncestor(); 
+		
 		
 		System.out.println("JMenuItem: " + e.getActionCommand());
 		
@@ -24,6 +33,7 @@ public class MyMenuBarListener implements ActionListener {
 		
 		if(cmd == "Status"){
 			System.out.println("STATUS program");
+			main.statusWindow.changeVisibility();
 		}
 	
 		if(cmd == "Exit"){
