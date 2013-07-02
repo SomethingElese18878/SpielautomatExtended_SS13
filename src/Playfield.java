@@ -4,9 +4,11 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.io.File;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
+import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -15,6 +17,7 @@ import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 import javax.swing.border.LineBorder;
+import javax.swing.plaf.FileChooserUI;
 
 import model.spielautomat;
 
@@ -92,6 +95,8 @@ public class Playfield extends JPanel{
 		this.add(this.panelCreditPrize, BorderLayout.NORTH);
 		this.add(this.panelSlotMachine, BorderLayout.CENTER);
 		this.add(this.panelStartStopBtn, BorderLayout.SOUTH);
+				
+		System.out.println("Position x/y" + this.getLocation().x + " " + this.getLocation().y);
 	}
 	
 	public void startRolling(){
@@ -155,9 +160,28 @@ public class Playfield extends JPanel{
 		
 		dialog.add(new JLabel("label"), BorderLayout.NORTH);
 		dialog.add(panelBtn, BorderLayout.SOUTH);
-		dialog.setLocation(275, 30);
+		dialog.setLocation(this.getLocation().x + 350, this.getLocation().y + 200);
 		dialog.setVisible(true);
 		dialog.pack();
+	}
+	
+	public void showJFileChooser(){
+		/**
+		 * 
+		 * returnValues: 
+		 * JFileChooser.APPROVE_OPTION = 0,
+		 * JFileChooser.ERROR_OPTION,
+		 * JFileChooser.CANCEL_OPTION = (1);
+		 * 
+		 */
+		JFileChooser fileChooser = new JFileChooser(new File("/home/norman"));
+
+		int fileValue = fileChooser.showOpenDialog(this); //fileChooser.showDialog(this, "machDoch");
+		System.out.println("fileValue: " + fileValue);
+		if (fileValue == JFileChooser.APPROVE_OPTION){
+			System.out.println("Approve Option pressed");
+		}
+
 	}
 	
 

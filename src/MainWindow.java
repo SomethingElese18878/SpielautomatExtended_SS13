@@ -11,6 +11,7 @@ public class MainWindow extends JFrame{
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setResizable(false);
 		this.setTitle("Spielautomat");
+//		this.setLocation(200, 300);
 		
 		this.playfield = new Playfield();
 		this.myMenuBar = new MyMenuBar(this.playfield);

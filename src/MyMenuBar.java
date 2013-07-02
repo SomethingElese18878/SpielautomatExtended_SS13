@@ -31,6 +31,7 @@ public class MyMenuBar extends JMenuBar {
 	JMenu menuSignal;
 	JMenuItem menuSignalJOption;
 	JMenuItem menuSignalJDialog;
+	JMenuItem menuSignalJFileChooser;
 	
 	MyMenuBarListener myMenuBarListener;
 	
@@ -85,10 +86,14 @@ public class MyMenuBar extends JMenuBar {
 		
 		this.menuSignalJDialog = new JMenuItem("JDialog");
 		this.menuSignalJDialog.addActionListener(this.myMenuBarListener);
+		
+		this.menuSignalJFileChooser = new JMenuItem("JFileChooser");
+		this.menuSignalJFileChooser.addActionListener(this.myMenuBarListener);
 
 		//add items to third menu
 		this.menuSignal.add(this.menuSignalJOption);
 		this.menuSignal.add(this.menuSignalJDialog);
+		this.menuSignal.add(this.menuSignalJFileChooser);
 		
 		
 		//Add menupoints to JMenuBar
