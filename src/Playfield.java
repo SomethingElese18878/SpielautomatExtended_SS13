@@ -6,6 +6,7 @@ import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -130,11 +131,33 @@ public class Playfield extends JPanel{
 	
 	public void showJOption(){
 		/**
-		 * JOptionPane in all flavours.
+		 * JOptionPane in all flavors.
+		 * Only modal.
 		 */
-		JOptionPane.showMessageDialog(this, "MessageDialog");
-//		JOptionPane.showConfirmDialog(this, "ConfirmDialog", "Titel", 0 );
+//ToDo:		JOptionPane.showOptionDialog(this, "OptionDialog", "Titel", JOptionPane.YES_NO_OPTION, JOptionPane.MESSAGE_TYPE_PROPERTY, null, options, initialValue)
+//		JOptionPane.showMessageDialog(this, "MessageDialog");
+		JOptionPane.showConfirmDialog(this, "ConfirmDialog", "Titel", JOptionPane.YES_NO_CANCEL_OPTION );
 //		JOptionPane.showInputDialog(this, "InputDialog");
+	}
+	
+	public void showJDialog(){
+		/*
+		 * JDialog in all flavors.
+		 * modal or non-modal
+		 */
+		JDialog dialog = new JDialog();
+				
+		JPanel panelBtn = new JPanel();
+		panelBtn.setLayout(new GridLayout(1, 3));
+		panelBtn.add(new JButton("Abort"));
+		panelBtn.add(new JButton("No"));
+		panelBtn.add(new JButton("Yes"));
+		
+		dialog.add(new JLabel("label"), BorderLayout.NORTH);
+		dialog.add(panelBtn, BorderLayout.SOUTH);
+		dialog.setLocation(275, 30);
+		dialog.setVisible(true);
+		dialog.pack();
 	}
 	
 
