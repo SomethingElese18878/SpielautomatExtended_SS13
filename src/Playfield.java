@@ -115,6 +115,7 @@ public class Playfield extends JPanel{
 		this.prizeText.setText( Integer.toString( this.game.getGewinn() ) );
 	}
 	
+	
 	public void setLookAndFeel(String _lookClassName){
 		System.out.println("setLookAndFeel: " + _lookClassName);
 		
@@ -127,5 +128,15 @@ public class Playfield extends JPanel{
 		
 	}
 	
+	public void showJOption(){
+		/**
+		 * JOptionPane in all flavours.
+		 */
+		JOptionPane.showMessageDialog(this, "MessageDialog");
+//		JOptionPane.showConfirmDialog(this, "ConfirmDialog", "Titel", 0 );
+//		JOptionPane.showInputDialog(this, "InputDialog");
+	}
+	
+
 	
 }

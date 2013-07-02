@@ -1,9 +1,15 @@
+import java.awt.Component;
+import java.awt.Graphics;
+import java.awt.Insets;
 import java.awt.event.KeyEvent;
 
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JRadioButton;
+import javax.swing.JSeparator;
+import javax.swing.SwingConstants;
+import javax.swing.border.Border;
 
 
 public class MyMenuBar extends JMenuBar {
@@ -22,20 +28,24 @@ public class MyMenuBar extends JMenuBar {
 	JRadioButton menuExtensionsLookAndFeelMotif;
 	JRadioButton menuExtensionsLookAndFeelGtk;
 	
+	JMenu menuSignal;
+	JMenuItem menuSignalJOption;
+	JMenuItem menuSignalJDialog;
+	
 	MyMenuBarListener myMenuBarListener;
 	
 	public MyMenuBar(Playfield _playfield) {
 		this.playfield = _playfield;
-		
 		myMenuBarListener = new MyMenuBarListener(this.playfield);
+		
 		//Create menu elements
 		this.menuProgram = new JMenu("Program");
 		this.menuProgram.setMnemonic(KeyEvent.VK_P);
 		
-		this.menuProgramExit = new JMenuItem("Exit", KeyEvent.VK_E);
-		this.menuProgramExit.addActionListener(this.myMenuBarListener);
 		this.menuProgramStatus = new JMenuItem("Status");
 		this.menuProgramStatus.addActionListener(this.myMenuBarListener);
+		this.menuProgramExit = new JMenuItem("Exit", KeyEvent.VK_E);
+		this.menuProgramExit.addActionListener(this.myMenuBarListener);
 		
 		//add items to first menu element
 		this.menuProgram.add(this.menuProgramStatus);
@@ -64,12 +74,27 @@ public class MyMenuBar extends JMenuBar {
 		this.menuExtensionsLookAndFeel.add(this.menuExtensionsLookAndFeelMotif);
 		this.menuExtensionsLookAndFeel.add(this.menuExtensionsLookAndFeelGtk);
 		
-		this.menuExtensions.add(menuExtensionsInfo);
-		this.menuExtensions.add(menuExtensionsLookAndFeel);
+		this.menuExtensions.add(this.menuExtensionsInfo);
+		this.menuExtensions.add(this.menuExtensionsLookAndFeel);
+		
+		//Third MenuPoint
+		this.menuSignal = new JMenu("Signal");
+		
+		this.menuSignalJOption = new JMenuItem("JOption");
+		this.menuSignalJOption.addActionListener(this.myMenuBarListener);
+		
+		this.menuSignalJDialog = new JMenuItem("JDialog");
+		this.menuSignalJDialog.addActionListener(this.myMenuBarListener);
+
+		//add items to third menu
+		this.menuSignal.add(this.menuSignalJOption);
+		this.menuSignal.add(this.menuSignalJDialog);
+		
 		
 		//Add menupoints to JMenuBar
 		this.add(this.menuProgram);
 		this.add(this.menuExtensions);
+		this.add(this.menuSignal);
 	}
 	
 }
