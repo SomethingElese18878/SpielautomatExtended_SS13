@@ -11,12 +11,12 @@ public class ChildWindowListener implements ComponentListener{
 	}
 
 	@Override
-	public void componentHidden(ComponentEvent e) {
-		
+	public void componentHidden(ComponentEvent e){
+	
 	}
 
 	public void componentMoved(ComponentEvent e) {
-		this.mainWindow.statusWindow.setLocation(mainWindow.getLocation().x + mainWindow.getWidth(), mainWindow.getLocation().y );
+		this.mainWindow.statusWindow.setLocation(mainWindow.getLocation().x + mainWindow.getWidth() + 10, mainWindow.getLocation().y );
 	
 	}
 

@@ -30,6 +30,13 @@ public class ButtonListener implements ActionListener {
 				this.playfield.mainWindow.statusWindow.increaseRoundCount();
 			}
 			
+			if(pushedButton.getActionCommand() == "togglePubModeButton"){
+				System.out.println("TOGGLE PUB Button");
+				this.playfield.mainWindow.statusWindow.togglePubModeButton();
+//				this.playfield.pubModeThread.start();
+			}
+			
+			
 		}
 
 		

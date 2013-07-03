@@ -33,6 +33,7 @@ public class Playfield extends JPanel{
 	spielautomat game;
 	Integer[] numerics;
 	RollingNumericsThread rollingNumericsThread;
+	PubModeThread pubModeThread;
 	
 	MainWindow mainWindow;
 	
@@ -49,6 +50,7 @@ public class Playfield extends JPanel{
 		this.game.addspielListener( new mySpielautomatListener(this));
 
 		this.rollingNumericsThread = new RollingNumericsThread(this);
+		this.pubModeThread = new PubModeThread(this);
 		
 		this.panelCreditPrize = new JPanel();
 		this.panelSlotMachine = new JPanel();
@@ -90,7 +92,6 @@ public class Playfield extends JPanel{
 		//Third Panel - start/stop buttons
 		this.startBtn = new JButton("start");
 		this.startBtn.setMnemonic(KeyEvent.VK_S);
-		this.startBtn.setFocusable(true);
 		this.stopBtn = new JButton("stop");
 		this.stopBtn.setMnemonic(KeyEvent.VK_O);
 		this.startBtn.addActionListener( new ButtonListener(this) );
