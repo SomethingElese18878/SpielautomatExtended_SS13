@@ -1,48 +1,32 @@
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
+import java.awt.event.ComponentEvent;
+import java.awt.event.ComponentListener;
 
 
-public class ChildWindowListener extends WindowAdapter{
+public class ChildWindowListener implements ComponentListener{
 	
-	public ChildWindowListener() {
-		// TODO Auto-generated constructor stub
+	MainWindow mainWindow;
+	
+	public ChildWindowListener(MainWindow _mainWindow) {
+		this.mainWindow = _mainWindow;
 	}
 
 	@Override
-	public void windowActivated(WindowEvent e) {
-		// TODO Auto-generated method stub
+	public void componentHidden(ComponentEvent e) {
+		
+	}
+
+	public void componentMoved(ComponentEvent e) {
+		this.mainWindow.statusWindow.setLocation(mainWindow.getLocation().x + mainWindow.getWidth(), mainWindow.getLocation().y );
+	
+	}
+
+	@Override
+	public void componentResized(ComponentEvent e) {
 		
 	}
 
 	@Override
-	public void windowClosed(WindowEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void windowClosing(WindowEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void windowDeactivated(WindowEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void windowIconified(WindowEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void windowOpened(WindowEvent e) {
-		// TODO Auto-generated method stub
+	public void componentShown(ComponentEvent e) {
 		
 	}
 

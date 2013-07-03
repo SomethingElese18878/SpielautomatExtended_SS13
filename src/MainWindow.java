@@ -22,7 +22,8 @@ public class MainWindow extends JFrame{
 		this.pack();
 		
 		this.statusWindow = new StatusWindow(this);	//After .pack() to get getWidth() getHeigth()
-
+		this.addComponentListener( new ChildWindowListener(this) );
+		
 		this.setVisible(true);
 	}
 	
