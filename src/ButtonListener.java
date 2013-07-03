@@ -13,20 +13,27 @@ public class ButtonListener implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		JButton pushedButton = (JButton) e.getSource();
-		
-		if(pushedButton.getText() == "start"){
-			System.out.println("--start pushed");
-			this.playfield.createNewThread();
-			this.playfield.rollingNumericsThread.start();
-		}
-		
-		if(pushedButton.getText() == "stop"){
-			System.out.println("--stop pushed");
-			this.playfield.rollingNumericsThread.stopRollingNumericsThread();
-			this.playfield.game.stopRollen();
+
+		if (e.getSource() instanceof JButton){
+			JButton pushedButton = (JButton) e.getSource();
+			
+			if(pushedButton.getText() == "start"){
+				System.out.println("--start pushed");
+				this.playfield.createNewThread();
+				this.playfield.rollingNumericsThread.start();
+			}
+			
+			if(pushedButton.getText() == "stop"){
+				System.out.println("--stop pushed");
+				this.playfield.rollingNumericsThread.stopRollingNumericsThread();
+				this.playfield.game.stopRollen();
+				
+			}
 			
 		}
+
+		
+
 	}
 	
 

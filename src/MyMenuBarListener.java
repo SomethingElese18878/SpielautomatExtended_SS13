@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
+import javax.swing.text.html.HTMLDocument.HTMLReader.IsindexAction;
 
 
 public class MyMenuBarListener implements ActionListener {
@@ -19,23 +20,26 @@ public class MyMenuBarListener implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-
-		JMenuItem source = (JMenuItem) e.getSource();
-		JPopupMenu popupMenu = (JPopupMenu) source.getParent();
-		Component invoker = (JComponent) popupMenu.getInvoker();
-		JMenuBar bar = (JMenuBar) invoker.getParent();
-		MainWindow main = (MainWindow) bar.getTopLevelAncestor(); 
-		
 		
 		System.out.println("JMenuItem: " + e.getActionCommand());
 		
 		String cmd = e.getActionCommand();
 		
-		if(cmd == "Status"){
-			System.out.println("STATUS program");
-			main.statusWindow.changeVisibility();
+		if(e.getSource() instanceof JMenuItem){
+			JMenuItem source = (JMenuItem) e.getSource();
+			JPopupMenu popupMenu = (JPopupMenu) source.getParent();
+			Component invoker = (JComponent) popupMenu.getInvoker();
+			JMenuBar bar = (JMenuBar) invoker.getParent();
+			MainWindow main = (MainWindow) bar.getTopLevelAncestor(); 
+			
+				if(cmd == "Status"){
+				System.out.println("STATUS program");
+				main.statusWindow.changeVisibility();
+				}
+		}else{
+			System.out.println("Unknown Object. Dont get cast for Toplevel");
+			
 		}
-	
 		if(cmd == "Exit"){
 			System.out.println("EXIT program");
 			System.exit(0);
@@ -58,7 +62,6 @@ public class MyMenuBarListener implements ActionListener {
 			System.out.println("JFileChooser pressed");
 			this.playfield.showJFileChooser();
 		}
-		
 		
 		//Look and Feels
 		if(cmd == "Metal"){
