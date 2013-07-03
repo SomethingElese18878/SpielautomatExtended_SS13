@@ -27,7 +27,7 @@ public class ButtonListener implements ActionListener {
 				System.out.println("--stop pushed");
 				this.playfield.rollingNumericsThread.stopRollingNumericsThread();
 				this.playfield.game.stopRollen();
-				
+				this.playfield.mainWindow.statusWindow.increaseRoundCount();
 			}
 			
 		}

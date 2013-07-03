@@ -14,7 +14,7 @@ public class MainWindow extends JFrame{
 		this.setTitle("Spielautomat");
 //		this.setLocation(200, 300);
 		
-		this.playfield = new Playfield();
+		this.playfield = new Playfield(this);
 		this.myMenuBar = new MyMenuBar(this.playfield);
 
 		this.setJMenuBar(this.myMenuBar);

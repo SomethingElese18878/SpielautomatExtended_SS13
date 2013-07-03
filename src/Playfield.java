@@ -4,6 +4,7 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.event.KeyEvent;
 import java.io.File;
 
 import javax.swing.JButton;
@@ -33,10 +34,14 @@ public class Playfield extends JPanel{
 	Integer[] numerics;
 	RollingNumericsThread rollingNumericsThread;
 	
+	MainWindow mainWindow;
+	
 	UIManager uiManager;
 	LookAndFeelInfo lookAndFeelInfo[];
 
-	Playfield(){
+	Playfield(MainWindow mainWindow){
+		this.mainWindow = mainWindow;
+		
 		this.lookAndFeelInfo = UIManager.getInstalledLookAndFeels();
 		this.setLookAndFeel(this.lookAndFeelInfo[3].getClassName());
 			
@@ -84,7 +89,10 @@ public class Playfield extends JPanel{
 		
 		//Third Panel - start/stop buttons
 		this.startBtn = new JButton("start");
+		this.startBtn.setMnemonic(KeyEvent.VK_S);
+		this.startBtn.setFocusable(true);
 		this.stopBtn = new JButton("stop");
+		this.stopBtn.setMnemonic(KeyEvent.VK_O);
 		this.startBtn.addActionListener( new ButtonListener(this) );
 		this.stopBtn.addActionListener( new ButtonListener(this) );
 		
