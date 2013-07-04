@@ -121,12 +121,16 @@ public class Playfield extends JPanel{
 		}
 	}
 	
-	public void createNewThread(){
+	public void createNewRollingNumericsThread(){
 		this.rollingNumericsThread = new RollingNumericsThread(this);
 	}
 	
+	public void createNewPubModeThread(){
+		this.pubModeThread = new PubModeThread(this);
+	}
+	
 	public void startGame(){
-		this.createNewThread();
+		this.createNewRollingNumericsThread();
 		this.rollingNumericsThread.start();
 	}
 	
