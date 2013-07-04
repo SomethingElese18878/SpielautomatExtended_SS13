@@ -1,16 +1,17 @@
-import java.awt.Component;
-import java.awt.Graphics;
-import java.awt.Insets;
+import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.event.KeyEvent;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JRadioButton;
-import javax.swing.JSeparator;
-import javax.swing.SwingConstants;
-import javax.swing.border.Border;
+
+import com.sun.jndi.toolkit.url.Uri;
 
 
 public class MyMenuBar extends JMenuBar {
@@ -18,7 +19,7 @@ public class MyMenuBar extends JMenuBar {
 	Playfield playfield;
 	
 	JMenu menuProgram;
-	JMenuItem menuProgramStatus;
+	JRadioButton menuProgramStatus;
 	JMenuItem menuProgramExit;
 	
 	JMenu menuExtensions;
@@ -36,19 +37,32 @@ public class MyMenuBar extends JMenuBar {
 	JMenuItem menuSignalJDialog;
 	JMenuItem menuSignalJFileChooser;
 	
+	ImageIcon iconExit;
+	ImageIcon iconInfo;
+	
 	MyMenuBarListener myMenuBarListener;
 	
 	public MyMenuBar(Playfield _playfield) {
 		this.playfield = _playfield;
 		myMenuBarListener = new MyMenuBarListener(this.playfield);
 		
+		String link2iconExit = "./icons/exit.png";
+		String link2iconInfo = "./icons/info.png";
+
+		this.iconExit = new ImageIcon(link2iconExit);
+		this.iconExit.setImage(this.iconExit.getImage().getScaledInstance(15, 15, Image.SCALE_DEFAULT));
+		this.iconInfo = new ImageIcon(link2iconInfo);
+		this.iconInfo.setImage(this.iconInfo.getImage().getScaledInstance(15, 15, Image.SCALE_DEFAULT));
+
+		
 		//Create menu elements
 		this.menuProgram = new JMenu("Program");
 		this.menuProgram.setMnemonic(KeyEvent.VK_P);
 		
-		this.menuProgramStatus = new JMenuItem("Status");
+		this.menuProgramStatus = new JRadioButton("Status", true);
 		this.menuProgramStatus.addActionListener(this.myMenuBarListener);
 		this.menuProgramExit = new JMenuItem("Exit", KeyEvent.VK_E);
+		this.menuProgramExit.setIcon(this.iconExit);
 		this.menuProgramExit.addActionListener(this.myMenuBarListener);
 		
 		//add items to first menu element
@@ -59,6 +73,7 @@ public class MyMenuBar extends JMenuBar {
 		this.menuExtensions = new JMenu("Extensions");
 		
 		this.menuExtensionsInfo = new JMenuItem("Info");
+		this.menuExtensionsInfo.setIcon(this.iconInfo);
 		this.menuExtensionsInfo.addActionListener(this.myMenuBarListener);
 		this.menuExtensionsLookAndFeel = new JMenu("LookAndFeel");
 		this.menuExtensionsLookAndFeel.setMnemonic(KeyEvent.VK_L);

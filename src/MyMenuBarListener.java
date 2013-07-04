@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
+import javax.swing.JRadioButton;
 import javax.swing.text.html.HTMLDocument.HTMLReader.IsindexAction;
 
 
@@ -25,8 +26,8 @@ public class MyMenuBarListener implements ActionListener {
 		
 		String cmd = e.getActionCommand();
 		
-		if(e.getSource() instanceof JMenuItem){
-			JMenuItem source = (JMenuItem) e.getSource();
+		if(e.getSource() instanceof JRadioButton){
+			JRadioButton source = (JRadioButton) e.getSource();
 			JPopupMenu popupMenu = (JPopupMenu) source.getParent();
 			Component invoker = (JComponent) popupMenu.getInvoker();
 			JMenuBar bar = (JMenuBar) invoker.getParent();
