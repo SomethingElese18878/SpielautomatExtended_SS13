@@ -3,6 +3,7 @@ import java.awt.Graphics;
 import java.awt.Insets;
 import java.awt.event.KeyEvent;
 
+import javax.swing.ButtonGroup;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -27,6 +28,8 @@ public class MyMenuBar extends JMenuBar {
 	JRadioButton menuExtensionsLookAndFeelNimbus;
 	JRadioButton menuExtensionsLookAndFeelMotif;
 	JRadioButton menuExtensionsLookAndFeelGtk;
+	
+	ButtonGroup groupRadioBtn;
 	
 	JMenu menuSignal;
 	JMenuItem menuSignalJOption;
@@ -61,14 +64,20 @@ public class MyMenuBar extends JMenuBar {
 		this.menuExtensionsLookAndFeel.setMnemonic(KeyEvent.VK_L);
 		
 		//subMenu LookAndFeel in Extensions
-		this.menuExtensionsLookAndFeelMetal = new JRadioButton("Metal");
+		this.groupRadioBtn = new ButtonGroup();
+		
+		this.menuExtensionsLookAndFeelMetal = new JRadioButton("Metal", true);
 		this.menuExtensionsLookAndFeelMetal.addActionListener(this.myMenuBarListener);
+		this.groupRadioBtn.add(this.menuExtensionsLookAndFeelMetal);
 		this.menuExtensionsLookAndFeelNimbus = new JRadioButton("Nimbus");
 		this.menuExtensionsLookAndFeelNimbus.addActionListener(this.myMenuBarListener);
+		this.groupRadioBtn.add(this.menuExtensionsLookAndFeelNimbus);
 		this.menuExtensionsLookAndFeelMotif = new JRadioButton("Motif");
 		this.menuExtensionsLookAndFeelMotif.addActionListener(this.myMenuBarListener);
+		this.groupRadioBtn.add(this.menuExtensionsLookAndFeelMotif);
 		this.menuExtensionsLookAndFeelGtk = new JRadioButton("Gtk");
 		this.menuExtensionsLookAndFeelGtk.addActionListener(this.myMenuBarListener);
+		this.groupRadioBtn.add(this.menuExtensionsLookAndFeelGtk);
 		
 		this.menuExtensionsLookAndFeel.add(this.menuExtensionsLookAndFeelMetal);
 		this.menuExtensionsLookAndFeel.add(this.menuExtensionsLookAndFeelNimbus);

@@ -44,7 +44,7 @@ public class Playfield extends JPanel{
 		this.mainWindow = mainWindow;
 		
 		this.lookAndFeelInfo = UIManager.getInstalledLookAndFeels();
-		this.setLookAndFeel(this.lookAndFeelInfo[3].getClassName());
+//		this.setLookAndFeel(this.lookAndFeelInfo[3].getClassName());
 			
 		this.game = spielautomat.getInstance();
 		this.game.addspielListener( new mySpielautomatListener(this));
