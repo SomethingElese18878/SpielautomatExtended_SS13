@@ -19,15 +19,12 @@ public class ButtonListener implements ActionListener {
 			
 			if(pushedButton.getText() == "start"){
 				System.out.println("--start pushed");
-				this.playfield.createNewThread();
-				this.playfield.rollingNumericsThread.start();
+				this.playfield.startGame();
 			}
 			
 			if(pushedButton.getText() == "stop"){
 				System.out.println("--stop pushed");
-				this.playfield.rollingNumericsThread.stopRollingNumericsThread();
-				this.playfield.game.stopRollen();
-				this.playfield.mainWindow.statusWindow.increaseRoundCount();
+				this.playfield.stopGame();
 			}
 			
 			if(pushedButton.getActionCommand() == "togglePubModeButton"){

@@ -125,6 +125,17 @@ public class Playfield extends JPanel{
 		this.rollingNumericsThread = new RollingNumericsThread(this);
 	}
 	
+	public void startGame(){
+		this.createNewThread();
+		this.rollingNumericsThread.start();
+	}
+	
+	public void stopGame(){
+		this.rollingNumericsThread.stopRollingNumericsThread();
+		this.game.stopRollen();
+		this.mainWindow.statusWindow.increaseRoundCount();
+	}
+	
 	public void updateCreditPrize(){
 		this.creditText.setText( Integer.toString( this.game.getGuthaben() ) );
 		this.prizeText.setText( Integer.toString( this.game.getGewinn() ) );
@@ -175,6 +186,7 @@ public class Playfield extends JPanel{
 	}
 	
 	public void showJFileChooser(){
+
 		/**
 		 * 
 		 * returnValues: 
