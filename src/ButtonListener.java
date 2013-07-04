@@ -33,7 +33,6 @@ public class ButtonListener implements ActionListener {
 			if(pushedButton.getActionCommand() == "togglePubModeButton"){
 				System.out.println("TOGGLE PUB Button");
 				this.playfield.mainWindow.statusWindow.togglePubModeButton();
-//				this.playfield.pubModeThread.start();
 			}
 			
 			

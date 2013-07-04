@@ -54,10 +54,12 @@ public class StatusWindow extends JWindow {
 	public void togglePubModeButton(){
 		if(this.pubModeOn == false){
 			this.btnAuto.setText("off");
+			mainWindow.playfield.pubModeThread.start();
 		}
 		
 		if(this.pubModeOn == true){
 			this.btnAuto.setText("auto");
+			mainWindow.playfield.pubModeThread.stopPubModeThread();
 		}
 		this.pubModeOn = !this.pubModeOn;
 			

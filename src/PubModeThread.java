@@ -13,7 +13,21 @@ public class PubModeThread extends Thread{
 	
 	public void run(){
 		while(this.beerIsFull){
+			this.playfield.createNewThread();
+			this.playfield.rollingNumericsThread.start();
 			System.out.println("sueffel, sueffel, sueffel..");
+			
+			try{
+				Thread.sleep(3000);
+			}catch(Exception e){
+				System.out.println("bla");
+			}
+			
+			this.playfield.rollingNumericsThread.stopRollingNumericsThread();
+			this.playfield.game.stopRollen();
+			this.playfield.mainWindow.statusWindow.increaseRoundCount();
+
+			
 		}
 		
 	}
