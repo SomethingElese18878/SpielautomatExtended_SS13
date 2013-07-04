@@ -13,8 +13,7 @@ public class PubModeThread extends Thread{
 	
 	public void run(){
 		while(this.beerIsFull){
-			this.playfield.createNewThread();
-			this.playfield.rollingNumericsThread.start();
+			this.playfield.startGame();
 			System.out.println("sueffel, sueffel, sueffel..");
 			
 			try{
@@ -22,11 +21,8 @@ public class PubModeThread extends Thread{
 			}catch(Exception e){
 				System.out.println("bla");
 			}
-			
-			this.playfield.rollingNumericsThread.stopRollingNumericsThread();
-			this.playfield.game.stopRollen();
-			this.playfield.mainWindow.statusWindow.increaseRoundCount();
-
+	
+			this.playfield.stopGame();
 			
 		}
 		
