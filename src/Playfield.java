@@ -143,6 +143,11 @@ public class Playfield extends JPanel{
 		this.prizeText.setText( Integer.toString( this.game.getGewinn() ) );
 	}
 	
+	public void setEinsatz(int _wert){
+		System.out.println("Einsatz wird auf " + _wert + " gesetzt.");
+		this.game.setEinsatz(_wert);
+	}
+	
 	public void setLookAndFeel(String _lookClassName){
 		System.out.println("setLookAndFeel: " + _lookClassName);
 		

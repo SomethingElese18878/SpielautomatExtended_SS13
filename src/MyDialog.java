@@ -2,6 +2,7 @@ import java.awt.GridLayout;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -17,6 +18,9 @@ public class MyDialog extends JDialog{
 	JPanel panelBtnStartguthaben;
 	JPanel panelDialog;
 	
+	JLabel lblStartguthaben;
+	JLabel lblEinsatz;
+	
 	JTextField tfStartguthaben;
 	JTextField tfEinsatz;
 	
@@ -25,11 +29,13 @@ public class MyDialog extends JDialog{
 	JButton btnEinsatzOK;
 	JButton btnEinsatzDefault;
 	
-	
+	ListenerMyDialog listenerMyDialog;
 	boolean mdDialogIsVisible = false;
 	
 	public MyDialog(MainWindow _mainWindow){
 		this.mainWindow = _mainWindow;
+		
+		this.listenerMyDialog = new ListenerMyDialog(this);
 		
 		this.panelBtnEinsatz = new JPanel();
 		this.panelBtnStartguthaben = new JPanel();
@@ -37,13 +43,18 @@ public class MyDialog extends JDialog{
 		this.mdDialog = new JDialog(this.mainWindow, "Change StartConditions");
 		
 		//CREATE dialog elements
+		this.lblEinsatz = new JLabel("Einsatz");
+		this.lblStartguthaben = new JLabel("Startguthaben");
+		
 		this.tfStartguthaben = new JTextField(Integer.toString(spielautomat.STARTGUTHABEN));
 		this.tfEinsatz = new JTextField(Integer.toString(spielautomat.STARTEINSATZ));
 		
 		this.btnEinsatzOK = new JButton("OK");
 		this.btnEinsatzOK.setActionCommand("EinsatzOK");
+		this.btnEinsatzOK.addActionListener(this.listenerMyDialog);
 		this.btnEinsatzDefault = new JButton("Standard");
 		this.btnEinsatzDefault.setActionCommand("EinsatzDefault");
+		this.btnEinsatzDefault.addActionListener(this.listenerMyDialog);
 		
 		this.btnStartguthabenOK = new JButton("OK");
 		this.btnStartguthabenOK.setActionCommand("GuthabenOK");
@@ -60,9 +71,11 @@ public class MyDialog extends JDialog{
 		this.panelBtnEinsatz.add(this.btnEinsatzOK);
 		
 		//Add to Dialog
-		this.mdDialog.setLayout(new GridLayout(4, 1));
+		this.mdDialog.setLayout(new GridLayout(6, 1));
+		this.mdDialog.add(this.lblEinsatz);
 		this.mdDialog.add(this.tfEinsatz);
 		this.mdDialog.add(panelBtnEinsatz);
+		this.mdDialog.add(this.lblStartguthaben);
 		this.mdDialog.add(this.tfStartguthaben);
 		this.mdDialog.add(this.panelBtnStartguthaben);
 		
