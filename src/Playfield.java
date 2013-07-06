@@ -18,7 +18,6 @@ import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 import javax.swing.border.LineBorder;
-import javax.swing.plaf.FileChooserUI;
 
 import model.spielautomat;
 
@@ -32,10 +31,11 @@ public class Playfield extends JPanel{
 	JLabel[] automat = new JLabel[4]; 
 	spielautomat game;
 	Integer[] numerics;
-	RollingNumericsThread rollingNumericsThread;
+//	RollingNumericsThread rollingNumericsThread;
 	PubModeThread pubModeThread;
 	
 	MainWindow mainWindow;
+	MyDialog mdStartConditions;
 	
 	UIManager uiManager;
 	LookAndFeelInfo lookAndFeelInfo[];
@@ -43,13 +43,14 @@ public class Playfield extends JPanel{
 	Playfield(MainWindow mainWindow){
 		this.mainWindow = mainWindow;
 		
+		this.mdStartConditions = new MyDialog(this.mainWindow);
+		
 		this.lookAndFeelInfo = UIManager.getInstalledLookAndFeels();
 //		this.setLookAndFeel(this.lookAndFeelInfo[3].getClassName());
 			
 		this.game = spielautomat.getInstance();
 		this.game.addspielListener( new mySpielautomatListener(this));
 
-		this.rollingNumericsThread = new RollingNumericsThread(this);
 		this.pubModeThread = new PubModeThread(this);
 		
 		this.panelCreditPrize = new JPanel();
@@ -124,6 +125,13 @@ public class Playfield extends JPanel{
 		for(int i = 0; i < 4; i++){
 			this.automat[i].setText(Integer.toString(numerics[i]));
 		}
+	}
+	
+	public void setStartConditions(){
+//		JOptionPane.showInputDialog(this, "Set youre StartConditions", spielautomat.STARTGUTHABEN);
+//		this.startCondition = new JDialog(this.mainWindow, "blaaa", false);
+//		this.mdStartConditions.setVisible(true);
+		this.mdStartConditions.showMyDialog();
 	}
 	
 	public void createNewPubModeThread(){

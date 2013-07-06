@@ -15,6 +15,7 @@ public class MyMenuBar extends JMenuBar {
 	
 	JMenu menuProgram;
 	JRadioButton menuProgramStatus;
+	JMenuItem menuProgramStartConditions;
 	JMenuItem menuProgramExit;
 	
 	JMenu menuExtensions;
@@ -60,12 +61,15 @@ public class MyMenuBar extends JMenuBar {
 		
 		this.menuProgramStatus = new JRadioButton("Status", true);
 		this.menuProgramStatus.addActionListener(this.myMenuBarListener);
+		this.menuProgramStartConditions = new JMenuItem("StartConditions");
+		this.menuProgramStartConditions.addActionListener(this.myMenuBarListener);
 		this.menuProgramExit = new JMenuItem("Exit", KeyEvent.VK_E);
 		this.menuProgramExit.setIcon(this.iconExit);
 		this.menuProgramExit.addActionListener(this.myMenuBarListener);
 		
 		//add items to first menu element
 		this.menuProgram.add(this.menuProgramStatus);
+		this.menuProgram.add(this.menuProgramStartConditions);
 		this.menuProgram.add(this.menuProgramExit);
 		
 		//Second MenuPoint

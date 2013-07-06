@@ -39,8 +39,13 @@ public class MyMenuBarListener implements ActionListener {
 				main.statusWindow.changeVisibility();
 				}
 		}else{
-			System.out.println("Unknown Object. Dont get cast for Toplevel");
+			System.out.println("No JRadioButton-Object. Dont get cast for Toplevel");
 		}
+		
+		if(cmd == "StartConditions"){
+			this.playfield.setStartConditions();
+		}
+		
 		if(cmd == "Exit"){
 			System.out.println("EXIT program");
 			System.exit(0);
