@@ -2,11 +2,11 @@ import model.spielautomatEvent;
 import model.spielautomatListener;
 
 
-public class mySpielautomatListener implements spielautomatListener {
+public class MySpielautomatListener implements spielautomatListener {
 	Playfield playfield;
 	
 	
-	public mySpielautomatListener(Playfield _playfield) {
+	public MySpielautomatListener(Playfield _playfield) {
 		this.playfield = _playfield;
 	
 	}

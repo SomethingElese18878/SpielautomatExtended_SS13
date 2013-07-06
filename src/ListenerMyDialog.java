@@ -27,10 +27,10 @@ public class ListenerMyDialog implements ActionListener{
 				this.myDialog.mainWindow.playfield.setEinsatz( Integer.parseInt(this.myDialog.tfEinsatz.getText()) );
 			}
 			if(cmd == "EinsatzDefault"){
-				this.myDialog.tfEinsatz.setText("50");
+				this.myDialog.tfEinsatz.setText("5");
 				String text = "Einsatz wurde auf " + this.myDialog.tfEinsatz.getText() + " gesetzt";
 				this.myDialog.lblwhatChanged.setText(text);
-				this.myDialog.mainWindow.playfield.setEinsatz( 50 ); //TODO: Why final changed in Playfield?
+				this.myDialog.mainWindow.playfield.setEinsatz( 5 ); //TODO: Why final changed in Playfield?
 			}
 			if(cmd == "Back"){
 				this.myDialog.showMyDialog();

@@ -22,12 +22,10 @@ public class PubModeThread extends Thread{
 				System.out.println("bla");
 			}
 	
-			this.playfield.stopGame();
-			
+			this.playfield.stopGame();		
 		}
 		
 	}
-	
 	
 	public void stopPubModeThread(){
 		this.beerIsFull = false;

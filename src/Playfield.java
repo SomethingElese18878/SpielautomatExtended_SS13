@@ -31,7 +31,6 @@ public class Playfield extends JPanel{
 	JLabel[] automat = new JLabel[4]; 
 	spielautomat game;
 	Integer[] numerics;
-//	RollingNumericsThread rollingNumericsThread;
 	PubModeThread pubModeThread;
 	
 	final int defaultStartguthaben = spielautomat.STARTGUTHABEN;
@@ -52,7 +51,7 @@ public class Playfield extends JPanel{
 //		this.setLookAndFeel(this.lookAndFeelInfo[3].getClassName());
 			
 		this.game = spielautomat.getInstance();
-		this.game.addspielListener( new mySpielautomatListener(this));
+		this.game.addspielListener( new MySpielautomatListener(this));
 
 		this.pubModeThread = new PubModeThread(this);
 		
