@@ -118,7 +118,7 @@ public class Playfield extends JPanel{
 	}
 	
 	public void printRollingNumerics(){
-		this.numerics = this.game.getZiffern();
+		this.numerics = this.game.getZiffern();	//FIXME: WHY IT GET NEW ZIFFERN WITHOUT THIS METHOD?
 		System.out.println("numerics: " +  numerics[0] + numerics[1] + numerics[2] + numerics[3] );
 
 		for(int i = 0; i < 4; i++){

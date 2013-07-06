@@ -4,6 +4,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JComponent;
 import javax.swing.JFrame;
+import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
@@ -26,11 +27,11 @@ public class MyMenuBarListener implements ActionListener {
 		
 		String cmd = e.getActionCommand();
 		
-		if(e.getSource() instanceof JRadioButton){
+		if(e.getSource() instanceof JRadioButton && cmd == "Status"){ //TODO: WHY i get an NPE if another JRadioButton from L&F get casted.
 			JRadioButton source = (JRadioButton) e.getSource();
 			JPopupMenu popupMenu = (JPopupMenu) source.getParent();
-			Component invoker = (JComponent) popupMenu.getInvoker();
-			JMenuBar bar = (JMenuBar) invoker.getParent();
+			JMenu menu = (JMenu) popupMenu.getInvoker();
+			JMenuBar bar = (JMenuBar) menu.getParent();
 			MainWindow main = (MainWindow) bar.getTopLevelAncestor(); 
 			
 				if(cmd == "Status"){
@@ -39,7 +40,6 @@ public class MyMenuBarListener implements ActionListener {
 				}
 		}else{
 			System.out.println("Unknown Object. Dont get cast for Toplevel");
-			
 		}
 		if(cmd == "Exit"){
 			System.out.println("EXIT program");
