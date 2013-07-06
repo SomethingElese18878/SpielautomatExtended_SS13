@@ -108,8 +108,13 @@ public class Playfield extends JPanel{
 		System.out.println("Position x/y" + this.getLocation().x + " " + this.getLocation().y);
 	}
 	
-	public void startRolling(){
+	public void startGame(){
 		this.game.startRollen();
+	}
+	
+	public void stopGame(){
+		this.game.stopRollen();
+		this.mainWindow.statusWindow.increaseRoundCount();
 	}
 	
 	public void printRollingNumerics(){
@@ -121,30 +126,14 @@ public class Playfield extends JPanel{
 		}
 	}
 	
-	public void createNewRollingNumericsThread(){
-		this.rollingNumericsThread = new RollingNumericsThread(this);
-	}
-	
 	public void createNewPubModeThread(){
 		this.pubModeThread = new PubModeThread(this);
-	}
-	
-	public void startGame(){
-		this.createNewRollingNumericsThread();
-		this.rollingNumericsThread.start();
-	}
-	
-	public void stopGame(){
-		this.rollingNumericsThread.stopRollingNumericsThread();
-		this.game.stopRollen();
-		this.mainWindow.statusWindow.increaseRoundCount();
 	}
 	
 	public void updateCreditPrize(){
 		this.creditText.setText( Integer.toString( this.game.getGuthaben() ) );
 		this.prizeText.setText( Integer.toString( this.game.getGewinn() ) );
 	}
-	
 	
 	public void setLookAndFeel(String _lookClassName){
 		System.out.println("setLookAndFeel: " + _lookClassName);

@@ -15,7 +15,7 @@ public class RollingNumericsThread extends Thread {
 	}
 	
 	public void run(){
-		this.playfield.startRolling();
+		this.playfield.startGame();
 		
 		while(this.isRunning){
 			this.playfield.numerics = this.game.getZiffern();

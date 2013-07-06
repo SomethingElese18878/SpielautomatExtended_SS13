@@ -14,7 +14,7 @@ public class mySpielautomatListener implements spielautomatListener {
 	@Override
 	public void ModelChanged(spielautomatEvent arg0) {
 		// TODO ModelChanged isnt used - triggered indirect over getZiffern()?!
-//		this.playfield.printRollingNumerics();
+		this.playfield.printRollingNumerics();
 		System.out.println("ModelChanged");
 		
 	}
