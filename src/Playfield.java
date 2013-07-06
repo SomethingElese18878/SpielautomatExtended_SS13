@@ -34,6 +34,9 @@ public class Playfield extends JPanel{
 //	RollingNumericsThread rollingNumericsThread;
 	PubModeThread pubModeThread;
 	
+	final int defaultStartguthaben = spielautomat.STARTGUTHABEN;
+	final int defaultEinsatz = spielautomat.STARTEINSATZ;
+	
 	MainWindow mainWindow;
 	MyDialog mdStartConditions;
 	
