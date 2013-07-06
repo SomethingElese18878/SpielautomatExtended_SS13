@@ -1,8 +1,5 @@
-import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
-import java.net.MalformedURLException;
-import java.net.URL;
 
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
@@ -10,8 +7,6 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JRadioButton;
-
-import com.sun.jndi.toolkit.url.Uri;
 
 
 public class MyMenuBar extends JMenuBar {
@@ -39,6 +34,7 @@ public class MyMenuBar extends JMenuBar {
 	
 	ImageIcon iconExit;
 	ImageIcon iconInfo;
+	ImageIcon iconBeer;
 	
 	MyMenuBarListener myMenuBarListener;
 	
@@ -48,12 +44,15 @@ public class MyMenuBar extends JMenuBar {
 		
 		String link2iconExit = "./icons/exit.png";
 		String link2iconInfo = "./icons/info.png";
+		String link2iconBeer = "./icons/beer16px.png";
 
+		//Load and resize Icons - also for other classes like statusWindow.
 		this.iconExit = new ImageIcon(link2iconExit);
 		this.iconExit.setImage(this.iconExit.getImage().getScaledInstance(15, 15, Image.SCALE_DEFAULT));
 		this.iconInfo = new ImageIcon(link2iconInfo);
 		this.iconInfo.setImage(this.iconInfo.getImage().getScaledInstance(15, 15, Image.SCALE_DEFAULT));
-
+		this.iconBeer = new ImageIcon(link2iconBeer);
+		this.iconBeer.setImage(this.iconBeer.getImage().getScaledInstance(15, 15, Image.SCALE_DEFAULT));
 		
 		//Create menu elements
 		this.menuProgram = new JMenu("Program");
