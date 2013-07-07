@@ -194,7 +194,6 @@ public class Playfield extends JPanel{
 	}
 	
 	public void showJFileChooser(){
-
 		/**
 		 * 
 		 * returnValues: 
@@ -203,7 +202,7 @@ public class Playfield extends JPanel{
 		 * JFileChooser.CANCEL_OPTION = (1);
 		 * 
 		 */
-		JFileChooser fileChooser = new JFileChooser(new File("/home/norman"));
+		JFileChooser fileChooser = new JFileChooser(); // new File("/home/norman")
 
 		int fileValue = fileChooser.showOpenDialog(this); //fileChooser.showDialog(this, "machDoch");
 		System.out.println("fileValue: " + fileValue);
