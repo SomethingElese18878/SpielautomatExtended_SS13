@@ -5,6 +5,7 @@ import javax.swing.JToolBar;
 
 public class MyToolbar extends JToolBar{
 	
+	JButton btnHighscore;
 	JButton btnPlayerNameOK;
 	JTextField tfPlayerName;
 	
@@ -14,15 +15,21 @@ public class MyToolbar extends JToolBar{
 	public MyToolbar(Playfield _playfield){
 		this.playfield = _playfield;
 		
+		this.setSize(500, 40);
 		this.listenerMyToolbar = new ListenerMyToolbar(this);
+		
+		//Toolbar Elements
+		this.btnHighscore = new JButton("Highscore");
+		this.btnHighscore.addActionListener(listenerMyToolbar);
+		
 		this.tfPlayerName = new JTextField("Player1");
 		
 		this.btnPlayerNameOK = new JButton("OK");
 		this.btnPlayerNameOK.addActionListener(listenerMyToolbar);
 		
-		this.setSize(200, 20);
+
 		
-		this.add(new JButton("bier"));
+		this.add(this.btnHighscore);
 		this.add(this.tfPlayerName);
 		this.add(this.btnPlayerNameOK);
 	}

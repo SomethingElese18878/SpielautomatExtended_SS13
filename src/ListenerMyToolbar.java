@@ -23,6 +23,11 @@ public class ListenerMyToolbar implements ActionListener{
 				System.out.println( sourceBtn.getText() );
 				myToolbar.playfield.setPlayerName( myToolbar.tfPlayerName.getText() );
 			}
+			
+			if(cmd == "Highscore"){
+				System.out.println("Highscore!");
+			}
+			
 		}
 	}
 

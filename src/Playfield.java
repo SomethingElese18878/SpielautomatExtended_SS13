@@ -158,6 +158,7 @@ public class Playfield extends JPanel{
 	
 	public void setPlayerName(String _playerName){
 		this.playerName = _playerName;
+		this.mainWindow.statusWindow.setRoundCount2Zero();
 	}
 	
 	public void setLookAndFeel(String _lookClassName){

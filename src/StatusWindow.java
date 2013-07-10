@@ -62,6 +62,9 @@ public class StatusWindow extends JWindow {
 		this.roundCount = this.roundCount + 1;
 		this.tFieldRoundCount.setText(Integer.toString(this.roundCount));
 	}
+	public void setRoundCount2Zero(){
+		this.roundCount = 0;
+	}
 	
 	public void togglePubModeButton(){
 		if(this.pubModeOn == false){
