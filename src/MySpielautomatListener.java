@@ -20,7 +20,15 @@ public class MySpielautomatListener implements spielautomatListener {
 
 	@Override
 	public void StatusChanged(spielautomatEvent arg0) {
-		System.out.println("StatusChanged");
+//		spielautomatEvent sourceEvent = (spielautomatEvent) arg0.getSource();
+
+		System.out.println("getKategorie: " + arg0.getKategorie());
+		System.out.println("getZiffern: " + arg0.getZiffern());
+		System.out.println("getStatus: " + arg0.getStatus());
+		System.out.println("getGewinn: " + arg0.getGewinn());
+//		System.out.println("getKategorie: " + sourceEvent.getKategorie());
+//		System.out.println("getKategorie: " + sourceEvent.getStatus());
+//		System.out.println("StatusChanged");
 		this.playfield.updateCreditPrize();
 		
 	}

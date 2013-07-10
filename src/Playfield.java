@@ -39,6 +39,10 @@ public class Playfield extends JPanel{
 	MainWindow mainWindow;
 	MyDialog mdStartConditions;
 	
+	//Highscore - JToolbar
+	String playerName;
+
+	
 	UIManager uiManager;
 	LookAndFeelInfo lookAndFeelInfo[];
 
@@ -143,11 +147,17 @@ public class Playfield extends JPanel{
 	public void updateCreditPrize(){
 		this.creditText.setText( Integer.toString( this.game.getGuthaben() ) );
 		this.prizeText.setText( Integer.toString( this.game.getGewinn() ) );
+		System.out.println("GEWONNEN: " + spielautomat.GEWONNEN);
+		System.out.println("AnzahlZiffern: " + spielautomat.ANZAHLZIFFERN);
 	}
 	
 	public void setEinsatz(int _wert){
 		System.out.println("Einsatz wird auf " + _wert + " gesetzt.");
 		this.game.setEinsatz(_wert);
+	}
+	
+	public void setPlayerName(String _playerName){
+		this.playerName = _playerName;
 	}
 	
 	public void setLookAndFeel(String _lookClassName){
@@ -159,6 +169,14 @@ public class Playfield extends JPanel{
 		}catch(Exception e){
 			JOptionPane.showMessageDialog(this, "Fehler LookAndFeel");
 		};
+		
+	}
+	
+	public void showUnseenVariables(){
+		System.out.println("ANZAHLZIFFERN: " + spielautomat.ANZAHLZIFFERN);
+		System.out.println("STARTGUTHABEN: "+ spielautomat.STARTGUTHABEN);
+		System.out.println("GEWONNEN: " + spielautomat.GEWONNEN);
+//		System.out.println( + game.get );
 		
 	}
 	
