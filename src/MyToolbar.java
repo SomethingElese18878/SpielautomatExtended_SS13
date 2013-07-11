@@ -1,4 +1,6 @@
 import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.JToolBar;
 
@@ -12,10 +14,11 @@ public class MyToolbar extends JToolBar{
 	Playfield playfield;
 	ListenerMyToolbar listenerMyToolbar;
 	
+	boolean visibilityWnd = false;
+	
 	public MyToolbar(Playfield _playfield){
 		this.playfield = _playfield;
-		
-		this.setSize(500, 40);
+
 		this.listenerMyToolbar = new ListenerMyToolbar(this);
 		
 		//Toolbar Elements
@@ -27,11 +30,12 @@ public class MyToolbar extends JToolBar{
 		this.btnPlayerNameOK = new JButton("OK");
 		this.btnPlayerNameOK.addActionListener(listenerMyToolbar);
 		
-
-		
 		this.add(this.btnHighscore);
 		this.add(this.tfPlayerName);
 		this.add(this.btnPlayerNameOK);
+
 	}
+	
+
 
 }

@@ -1,6 +1,8 @@
 import java.awt.BorderLayout;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JScrollPane;
 
 
 public class MainWindow extends JFrame{
@@ -9,7 +11,9 @@ public class MainWindow extends JFrame{
 	Playfield playfield;
 	MyMenuBar myMenuBar;
 	StatusWindow statusWindow;
+	HighscoreTable highscoreTable;
 	MyToolbar myToolbar;
+	
 	
 	public MainWindow(){
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -21,6 +25,9 @@ public class MainWindow extends JFrame{
 //		this.playfield.showUnseenVariables();
 		this.myMenuBar = new MyMenuBar(this.playfield);
 		this.myToolbar = new MyToolbar(this.playfield);
+		
+		this.highscoreTable = new HighscoreTable(this.playfield);
+
 
 		this.setJMenuBar(this.myMenuBar);
 		this.add(this.myToolbar, BorderLayout.PAGE_END); // .PAGE_START

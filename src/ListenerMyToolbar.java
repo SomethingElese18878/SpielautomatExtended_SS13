@@ -26,6 +26,8 @@ public class ListenerMyToolbar implements ActionListener{
 			
 			if(cmd == "Highscore"){
 				System.out.println("Highscore!");
+//				this.myToolbar.toggleVisibilityHighscore();
+				myToolbar.playfield.mainWindow.highscoreTable.toggleVisibilityHighscore();
 			}
 			
 		}

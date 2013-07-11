@@ -33,6 +33,8 @@ public class Playfield extends JPanel{
 	Integer[] numerics;
 	PubModeThread pubModeThread;
 	
+	HighscoreTable highscoreTable;
+	
 	final int defaultStartguthaben = spielautomat.STARTGUTHABEN;
 	final int defaultEinsatz = spielautomat.STARTEINSATZ;
 	

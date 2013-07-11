@@ -52,7 +52,6 @@ public class StatusWindow extends JWindow {
 		this.setVisible(this.visibility);
 	}
 	
-	
 	public void changeVisibility(){
 		this.visibility = !this.visibility;
 		this.setVisible(this.visibility);
